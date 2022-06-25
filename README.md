@@ -1,0 +1,2 @@
+# MyStore
+Angular Project 
