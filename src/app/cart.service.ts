@@ -36,7 +36,7 @@ export class CartService {
   updateCartProducts(product: any) {
     if (
       !this.cart.products.some(
-        (currentProduct:any) => currentProduct.id === product.id
+        (currentProduct:Product) => currentProduct.id === product.id
       )
     ) {
       this.cart.products.push(product);
@@ -56,9 +56,10 @@ export class CartService {
     return this.cart;
   }
 
-  removeCartProduct(product: Product) {
+  removeCartProduct(products: Product) {
+    console.log(products);
     this.cart.products = this.cart.products.filter(
-      (currentProduct:any) => currentProduct.id !== product.id
+      (currentProduct:Product) => currentProduct.id !== products.id
     );
 
     return this.cart;

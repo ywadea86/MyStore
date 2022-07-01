@@ -8,16 +8,17 @@ import { Product } from 'src/app/models/product.model';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
   cart: Cart | undefined;
- 
+
   model: CartDetails = {
     fullName: '',
     address: '',
     creditCardNumber: '',
   };
+
   firstName: string = '';
 
   address: string = '';
@@ -50,6 +51,4 @@ export class CartComponent implements OnInit {
     this.cartService.removeCartProduct(product);
     this.getData();
   }
-  
-
 }

@@ -13,11 +13,11 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public increment(): void {
+  increment(): void {
     this.count++;
   }
 
-  public decrement(): void {
+  decrement(): void {
     if (this.count > 0) {
       this.count--;
     } else {
@@ -25,7 +25,7 @@ export class CartItemComponent implements OnInit {
     }
   }
 
-  public handleRemoveFromCartClick(product: any): void {
+  handleRemoveFromCartClick(product: any): void {
     alert('Cart has been updated!');
     this.removeFromCartClick.emit({ ...product, quantity: 0 });
   }
