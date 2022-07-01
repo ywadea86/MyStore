@@ -1,0 +1,8 @@
+<section class="cards" *ngIf="product">
+    <div class="card">
+      <app-product-item
+        [products]="product"
+        (addToCartClick)="onAddToCart($event)"
+      ></app-product-item>
+    </div>
+  </section>

@@ -1,0 +1,9 @@
+<section class="product-container" *ngIf="productList">
+  <div class="product-index" *ngFor="let product of this.productList">
+    <app-product-item
+      [products]="product"
+      (addToCartClick)="onAddToCart($event)"
+    ></app-product-item>
+  </div>
+</section>
+
