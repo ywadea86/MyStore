@@ -1,7 +1,8 @@
 
-<div class="product-container">
+
+  <div class="product-index">
   <a [routerLink]="['/products', products.id]">
-        <img src={{products.url}} alt={{products.name}} class="product-image" style="width: 100%">
+        <img class="product-image" src={{products.url}} alt={{products.name}} >
         <h1>{{products.name}}</h1>
         <p>${{products.price}}</p>
         <p>{{products.description}}</p>
@@ -9,15 +10,16 @@
         <p>
           {{ count }}
         </p>
-        <div class="counter">
-          <button type="button" class="counter" (click)="increment()">+</button>
-          <button type="button" class="counter" (click)="decrement()">-</button>
+        <div>
+          <button type="button" class="select-input" (click)="increment()">+</button>
+          <button type="button" class="select-input" (click)="decrement()">-</button>
         </div>
-        <p>
+        
           <button (click)="handleAddToCartClick(products)">Add to Cart</button>
-        </p>
-       
+        
       </div>
+       
+    
     
      
     

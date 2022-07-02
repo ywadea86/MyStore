@@ -2,10 +2,11 @@
 <div class="cart-container">
  
     <div class="cart-panel" *ngIf="cart">
-      <div class="card" *ngFor="let product of cart.products">
-        {{product}}
-        <app-cart-item class="img" [product]="product" (removeFromCartClick)="onRemoveFromCart(product)"></app-cart-item>
+
+      <div  *ngFor="let product of cart.products">
+        <app-cart-item  [product]="product" (removeFromCartClick)="onRemoveFromCart(product)"></app-cart-item>
       </div>
+
       <div *ngIf="this.cart && this.cart.products.length > 0">
         <h3>Total: ${{ total }}</h3>
       </div>
