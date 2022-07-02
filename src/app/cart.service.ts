@@ -8,10 +8,10 @@ import { Product } from './models/product.model';
   providedIn: 'root'
 })
 export class CartService {
-  private cart:Cart;
+  private cartItem:Cart;
 
   constructor() { 
-    this.cart = {
+    this.cartItem = {
       id: uuidv4(),
       products: [],
       details: {
@@ -21,27 +21,21 @@ export class CartService {
       },
     };
   }
-  getCart() {
-    return this.cart;
+  getItemCart() {
+    return this.cartItem;
   }
-   getCartTotal() {
-    return this.cart.products
-      .reduce(
-        (accumulator:any, currentValue:any) =>
-          accumulator + currentValue.price * currentValue.quantity,
-        0
-      )
-      .toFixed(2);
+   getItemCartTotal() {
+    return this.cartItem.products.reduce((previousValue:any, currentValue:any) =>previousValue + currentValue.price * currentValue.quantity,0).toFixed(2);
   }
-  updateCartProducts(product: any) {
+  updateItemcartItemProducts(product: any) {
     if (
-      !this.cart.products.some(
+      !this.cartItem.products.some(
         (currentProduct:Product) => currentProduct.id === product.id
       )
     ) {
-      this.cart.products.push(product);
-    } else {
-      this.cart.products = this.cart.products.map(
+      this.cartItem.products.push(product);
+    } else
+      this.cartItem.products = this.cartItem.products.map(
         (currentProduct: Product) => {
           if (currentProduct.id === product.id) {
             return {
@@ -52,32 +46,32 @@ export class CartService {
           return currentProduct;
         }
       );
-    }
-    return this.cart;
+    
+    return this.cartItem;
   }
 
-  removeCartProduct(products: Product) {
+  removeItemCartProduct(products: Product) {
     console.log(products);
-    this.cart.products = this.cart.products.filter(
+    this.cartItem.products = this.cartItem.products.filter(
       (currentProduct:Product) => currentProduct.id !== products.id
     );
 
-    return this.cart;
+    return this.cartItem;
   }
 
-  updateCartDetails(details: CartDetails) {
-    this.cart.details = details;
-    return this.cart;
+  updateItemCartDetails(details: CartDetails) {
+    this.cartItem.details = details;
+    return this.cartItem;
   }
 
-  clearCart() {
-    this.cart.products = [];
-    this.cart.details = {
+  clearItemCart() {
+    this.cartItem.products = [];
+    this.cartItem.details = {
       fullName: '',
       address: '',
       creditCardNumber: '',
     };
-    return this.cart;
+    return this.cartItem;
   }
 
 }

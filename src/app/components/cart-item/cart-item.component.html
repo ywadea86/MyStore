@@ -9,11 +9,10 @@
         <p>${{ product.price }}</p>
      
         <p>Amount: {{ product.quantity }}</p>
+        <button (click)="handleRemoveFromCartClick(product)">
+          Remove
+        </button>
       </div>
-      <div>
-      <button (click)="handleRemoveFromCartClick(product)">
-        Remove
-      </button>
-    </div>
+     
     </div>
   

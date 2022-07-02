@@ -19,8 +19,7 @@ export class CartComponent implements OnInit {
     creditCardNumber: '',
   };
 
-  firstName: string = '';
-
+  fullName: string = '';
   address: string = '';
   creditCardNumber: string = '';
   total: string = '0.00';
@@ -35,12 +34,13 @@ export class CartComponent implements OnInit {
   }
 
   getData() {
-    this.cart = this.cartService.getCart();
-    this.total = this.cartService.getCartTotal();
+    this.cart = this.cartService.getItemCart();
+    this.total = this.cartService.getItemCartTotal();
   }
 
-  onSubmit(): void {
-    this.cartService.updateCartDetails(this.model);
+  onSub(): void {
+  console.log(this.cartService.getItemCart())
+    this.cartService.updateItemCartDetails(this.model);
 
     this.router.navigate(['/confirmation'], {
       queryParamsHandling: 'preserve',
@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
   }
 
   onRemoveFromCart(product: Product): void {
-    this.cartService.removeCartProduct(product);
+    this.cartService.removeItemCartProduct(product);
     this.getData();
   }
 }

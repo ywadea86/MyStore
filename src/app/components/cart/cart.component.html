@@ -1,35 +1,33 @@
 
 <div class="cart-container">
- 
     <div class="cart-panel" *ngIf="cart">
-
       <div  *ngFor="let product of cart.products">
         <app-cart-item  [product]="product" (removeFromCartClick)="onRemoveFromCart(product)"></app-cart-item>
       </div>
-
-      <div *ngIf="this.cart && this.cart.products.length > 0">
+      <div *ngIf="cart && cart.products.length > 0">
         <h3>Total: ${{ total }}</h3>
       </div>
-      <div class="empty-cart-message" *ngIf="this.cart && this.cart.products.length === 0">
+      <div class="empty-cart-message" *ngIf="cart &&cart.products.length==0">
         Cart is empty!
       </div>
     </div>
 
-    <form class="form-margin" name="form" (ngSubmit)=" onSubmit()">
+    <form class="form-style" name="form" novalidate
+    (submit)="cart && cart.products.length > 0 && onSub()">
       <div >
-        <label>Full name</label>
+        <label>Full Name</label>
         <input type="text"  name="fullName" required/>
       </div>
       <div>
         <label>Address</label>
-        <input type="text" name="address"required/>
+        <input type="text" name="address" required/>
       </div>
       <div>
         <label>Credit Card Number</label>
         <input type="number" name="creditCardNumber" class="number-input" required/> 
       </div>
       <div class="text-center">
-        <button type="submit">Register</button>
+        <button type="submit">CheckOUT</button>
       </div>
     </form>
 

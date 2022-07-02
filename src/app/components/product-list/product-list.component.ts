@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
   }
   getProducts() {
     this.productService.getProducts().subscribe((products) => {
-      const cart = this.cartService.getCart();
+      const cart = this.cartService.getItemCart();
 
       this.productList = this.productService.updateProductQuantity(
         cart.products,
@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
     });
   }
   onAddToCart(product: Product): void {
-    this.cartService.updateCartProducts(product);
+    this.cartService.updateItemcartItemProducts(product);
   }
 
 }

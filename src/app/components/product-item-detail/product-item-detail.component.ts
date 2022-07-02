@@ -24,7 +24,7 @@ export class ProductItemDetailComponent implements OnInit {
 
     this.sub = this.route.params.subscribe((params) => {
       this.productService.getProducts().subscribe((products) => {
-        const cart = this.cartService.getCart();
+        const cart = this.cartService.getItemCart();
 
         const productList = this.productService.updateProductQuantity(
           cart.products,
@@ -42,7 +42,7 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   onAddToCart(product: Product): void {
-    this.cartService.updateCartProducts(product);
+    this.cartService.updateItemcartItemProducts(product);
   }
 
 }

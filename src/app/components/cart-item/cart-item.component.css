@@ -24,8 +24,3 @@ img {
   width: 80px;
   text-align: center;
 }
-.empty-cart-message {
-  display: flex;
-  justify-content: center;
-  margin-top: 64px;
-}

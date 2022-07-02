@@ -15,4 +15,36 @@
     margin-right: 50px;
   }
   
-  
+  .empty-cart-message {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+  }
+  .form-margin {
+    margin-bottom: 12px;
+  }
+  .form-style input[type="text"],
+  .form-style input[type="date"],
+  .form-style input[type="datetime"],
+  .form-style input[type="email"],
+  .form-style input[type="number"],
+  .form-style input[type="search"],
+  .form-style input[type="time"],
+  .form-style input[type="url"],
+  .form-style input[type="password"],
+  .form-style textarea,
+  .form-style select {
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border: 2px solid #fff;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+  }

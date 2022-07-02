@@ -14,8 +14,8 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.httpRequest.get<Product[]>(this._jsonURL);
   }
-  updateProductQuantity(cartProducts: any, currentProducts: Product[]) {
-    if (cartProducts.length === 0) {
+  updateProductQuantity(cartItemProducts: any, currentProducts: Product[]) {
+    if (cartItemProducts.length === 0) {
       return currentProducts.map((product) => {
         return {
           ...product,
@@ -25,14 +25,14 @@ export class ProductService {
     }
 
     return currentProducts.map((currentProduct: Product) => {
-      const cartProduct = cartProducts.find(
+      const cartItemProduct = cartItemProducts.find(
         (product:any) => product.id === currentProduct.id
       );
 
-      if (cartProduct) {
+      if (cartItemProduct) {
         return {
           ...currentProduct,
-          quantity: cartProduct.quantity,
+          quantity: cartItemProduct.quantity,
         };
       }
 
