@@ -1,3 +1,43 @@
+# About Project
+An Angular one-page e-commerce app and the data is fetching from a JSON file(Data.json), which is made up of a group of components that work together .It consists of the following Two Routes:
+
+1-Product List: Display all products
+2-Cart : Display Item on  Cart and Form for Register
+
+There are 7 Components inside components directory
+
+1-Cart
+2-Cart-Item
+3-Confirmation
+4-Product-Item
+5-Product-item-list
+6-Product-list
+7-layout
+
+There are three models
+1-cart-details
+    fullName: string;
+    address: string;
+    creditCardNumber: string;
+2-cart-model
+    id: string;
+    products: any;
+    details: CartDetails;
+3-product
+    id: number;
+    name: string;
+    price: number;
+    url: string,
+    description: string
+There two services:Cart Service and Product Service
+
+
+
+
+
+
+
+
 # MYStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
