@@ -40,7 +40,7 @@ export class CartService {
           if (currentProduct.id === product.id) {
             return {
               ...currentProduct,
-              quantity: product.quantity,
+              quantity: product.quantity+product.quantity,
             };
           }
           return currentProduct;

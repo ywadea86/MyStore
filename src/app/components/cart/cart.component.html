@@ -12,20 +12,38 @@
       </div>
     </div>
 
-    <form class="form-style" name="form" novalidate
-    (submit)="cart && cart.products.length > 0 && onSub()">
+    <form [formGroup]="valForm" novalidate class="form-style" name="form" 
+    (submit)="cart && cart.products.length > 0 ">
       <div >
         <label>Full Name</label>
-        <input type="text"  name="fullName" required/>
+        <input type="text"  name="fullName" formControlName="name" required  minlength="3"/>
       </div>
+      <div *ngIf="valForm.controls['name'].invalid && (valForm.controls['name'].dirty || valForm.controls['name'].touched)" 
+      class="alert alert-danger">
+        <div *ngIf="valForm.controls['name'].errors">
+          Name is required. and the name Must be more than 3 charcters
+        </div>
+        </div>
       <div>
         <label>Address</label>
-        <input type="text" name="address" required/>
+        <input type="text" name="address" formControlName="address" required  minlength="6"/>
       </div>
+      <div *ngIf="valForm.controls['address'].invalid && (valForm.controls['address'].dirty || valForm.controls['address'].touched)" class="alert alert-danger">
+        <div *ngIf="valForm.controls['address'].errors">
+          address is required and it should be more than 6 charcters.
+        </div>
+    </div>
       <div>
         <label>Credit Card Number</label>
-        <input type="number" name="creditCardNumber" class="number-input" required/> 
+        <input type="text" name="creditCardNumber" formControlName="cardNumber" class="number-input" required  
+        minlength="16"
+        maxlength="16"/> 
       </div>
+      <div *ngIf="valForm.controls['cardNumber'].invalid && (valForm.controls['cardNumber'].dirty || valForm.controls['cardNumber'].touched)" class="alert alert-danger">
+        <div *ngIf="valForm.controls['cardNumber'].errors">
+          You must write 16 digits.
+        </div>
+    </div>
       <div class="text-center">
         <button type="submit">CheckOUT</button>
       </div>

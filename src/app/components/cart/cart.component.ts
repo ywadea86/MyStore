@@ -4,6 +4,7 @@ import { CartDetails } from 'src/app/models/cart-details.model';
 import { CartService } from '../../cart.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -12,6 +13,7 @@ import { Product } from 'src/app/models/product.model';
 })
 export class CartComponent implements OnInit {
   cart: Cart | undefined;
+  valForm!: FormGroup ;
 
   model: CartDetails = {
     fullName: '',
@@ -26,8 +28,12 @@ export class CartComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private cartService: CartService
-  ) {}
+    private cartService: CartService,
+    private fValidate: FormBuilder
+  ) {
+    this.cForm();
+  }
+
 
   ngOnInit(): void {
     this.getData();
@@ -51,4 +57,11 @@ export class CartComponent implements OnInit {
     this.cartService.removeItemCartProduct(product);
     this.getData();
   }
+  cForm() {
+    this.valForm = this.fValidate.group({
+       name: ['', Validators.required ],
+       address: ['', Validators.required ],
+       cardNumber: ['', Validators.required ]
+
+    })}
 }
